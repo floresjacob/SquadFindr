@@ -89,7 +89,7 @@
     </div>
 
     <!-- asks for sport (dropdown) -->
-    <div class="container page" id="sportcon">
+    <!-- <div class="container page" id="sportcon">
         <div class="jumbotron text-center">
             <div class="container">
                 <h1>squadFindr</h1>
@@ -116,7 +116,38 @@
 
         </div>
 
+    </div> -->
+
+    <div class="container page" id="sportcon">
+        <div class="jumbotron text-center">
+                What kind of Squad are you looking for?
+                <br><br>
+         <!-- Add .onclick JS to buttons to show/hide various "cards" and pull from firebase -->      
+                
+         <form>
+            <div class="form-group">
+                <label for="sel1">Select list:</label>
+                <select class="form-control" id="sport">
+                    <option disabled> --Sports-- </option>
+                  <option> Soccer </option>
+                  <option> Football </option>
+                  <option> Basketball </option>
+                  <option> Baseball </option>
+                  <option disabled> --eSports--</option>
+                  <option> Overwatch </option>
+                  <option> Fortnite </option>
+                  <option> Starcraft II </option>
+                </select>
+              </div>
+
+            <button type="submit" class="btn btn-primary" id="sportsbmt">Submit</button>
+
+        </form>
+
+            </div>
+        </div>
     </div>
+                        
 
     <!-- asks if they are ready to play -->
     <div class="container page">
