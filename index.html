@@ -8,29 +8,149 @@
     <!-- bootstrap  -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="./assets/style.css" rel="stylesheet" type="text/css">
     <title>SquadFindr</title>
     
 </head>
+
+    <div class="jumbotron" id="return"></div>
+
     <!-- landing page container just asks for name-->
-    <div class="container"></div>
+    <div class="container page" id="namecon">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h1>squadFindr</h1>
+                    <p>Find your squad</p>
+    
+                        <form>
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+    
+                            <button type="submit" class="btn btn-primary" id="namesbmt">Submit</button>
+    
+                        </form>
+    
+                </div>
+    
+            </div>
+    
+        </div>
 
     <!-- container just asks for age range -->
-    <div class="container"></div>
+    <div class="container page" id="agecon">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h1>squadFindr</h1>
+                    <p>Find you squad</p>
+    
+                        <form>
+                            <div class="form-group">
+                                <label for="sel1">How old are you:</label>
+                                <select class="form-control" id="age">
+                                  <option>18-30</option>
+                                  <option>30-50</option>
+                                  <option>Old AF</option>
+                                </select>
+                              </div>
+    
+                            <button type="submit" class="btn btn-primary" id="agesbmt">Submit</button>
+    
+                        </form>
+    
+                </div>
+    
+            </div>
+    
+        </div>
 
     <!-- asks for zipcode  -->
-    <div class="container"></div>
+    <div class="container page" id="zipcon">
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>squadFindr</h1>
+                <p>Find you squad</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label>Zip Code:</label>
+                            <input type="text" class="form-control" id="zip">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="zipsbmt">Submit</button>
+
+                    </form>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- asks for sport (dropdown) -->
-    <div class="container"></div>
+    <div class="container page" id="sportcon">
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>squadFindr</h1>
+                <p>Find you squad</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="sel1">Select list:</label>
+                            <select class="form-control" id="sport">
+                              <option>Basketball</option>
+                              <option>Softball</option>
+                              <option>Jerking Off</option>
+                              <option>smoking crack</option>
+                              <option>other</option>
+                              <option>porn</option>
+                            </select>
+                          </div>
+
+                        <button type="submit" class="btn btn-primary" id="sportsbmt">Submit</button>
+
+                    </form>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- asks if they are ready to play -->
-    <div class="container"></div>
+    <div class="container page">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <h1>squadFindr</h1>
+                    <p>Find you squad</p>
+    
+                        <form>
+                            <div class="form-group">
+                                <label for="sel1">Can you play now?</label>
+                                <select class="form-control" id="playnow">
+                                  <option>Yes</option>
+                                  <option>No</option>
+                                </select>
+                              </div>
+    
+                            <button type="submit" class="btn btn-primary" id="playsbmt">Submit</button>
+    
+                        </form>
+    
+                </div>
+    
+            </div>
+    
+        </div>
 
 
 
 
     <!-- jQuery CDN -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="./assets/script.js" type="text/javascript"></script>
 </body>
 
 </html>
