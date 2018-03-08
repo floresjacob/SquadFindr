@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap  -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>SquadFindr</title>
+    
+</head>
+
+<!-- landing page container just asks for name-->
+<div class="container"></div>
+
+<!-- container just asks for age range -->
+<div class="container"></div>
+
+<!-- asks for zipcode  -->
+<div class="container" style="display: none">
+    <div class="jumbotron text-center">
+        <div class="container">
+            <h1>squadFindr</h1>
+            <p>Find your squad</p>
+            
+            <form>
+                <div class="form-group">
+                    <label>Zip Code:</label>
+                    <input type="text" class="form-control" id="zip">
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="zipsbmt">Submit</button>
+                
+            </form>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+<!-- asks for sport (dropdown) -->
+<div class="jumbotron text-center" style="font-size: 30px">
+    <div class="container">
+        <h1> Sports </h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="w3-dropdown-hover"> Soccer
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/soccerSF.jpeg" alt="London" style="width:100%">
+                        <div class="w3-container" id="soccer-status">
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="w3-dropdown-hover">Football
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/footballSF.jpg" alt="" style="width:100%">
+                        <div class="w3-container">  
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+            </div>
+            </div>
+            <div class="col-md-3">
+                <div class="w3-dropdown-hover"> Basketball
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/basketballSF.jpeg" alt="basketball" style="width:100%">
+                        <div class="w3-container"> 
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="w3-dropdown-hover"> Baseball
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/baseballSF.jpeg" alt="baseball" style="width:100%">
+                        <div class="w3-container"> 
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1> Esports</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="w3-dropdown-hover"> Overwatch
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/overwatchSF.jpg" alt="overwatch" style="width:100%">
+                        <div class="w3-container"> 
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="w3-dropdown-hover"> Fortnite
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/fortniteSF.jpg" alt="fortnite" style="width:100%">
+                        <div class="w3-container"> 
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="w3-dropdown-hover"> Starcraft II
+                    <div class="w3-dropdown-content w3-card-4" style="width:250px">
+                        <img src="assets/images/starcraft2SF.jpg" alt="starcraft2" style="width:100%">
+                        <div class="w3-container"> 
+                            Member Count:
+                            <!-- container to receive push from firebase w/member count & perhaps amount of users online -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+<!-- asks if they are ready to play -->
+<div class="container"></div>
+
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</body>
+
+</html>

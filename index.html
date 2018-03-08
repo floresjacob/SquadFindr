@@ -8,9 +8,11 @@
     <!-- bootstrap  -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>SquadFindr</title>
     
 </head>
+
     <!-- landing page container just asks for name-->
     <div class="container"></div>
 
@@ -18,15 +20,63 @@
     <div class="container"></div>
 
     <!-- asks for zipcode  -->
-    <div class="container"></div>
+    <div class="container" style="display: none">
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>squadFindr</h1>
+                <p>Find you squad</p>
+
+                    <form>
+                        <div class="form-group">
+                            <label>Zip Code:</label>
+                            <input type="text" class="form-control" id="zip">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" id="zipsbmt">Submit</button>
+
+                    </form>
+
+            </div>
+
+        </div>
+
+    </div>
 
     <!-- asks for sport (dropdown) -->
-    <div class="container"></div>
+    <div class="container">
+        <div class="jumbotron text-center">
+                What kind of Squad are you looking for?
+                <br><br>
+            <div class="dropdown">
+                <button class="btn btn-dark btn-lg dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pick Your Sport!
+                </button>
+
+         <!-- Add .onclick JS to buttons to show/hide various "cards" and pull from firebase -->      
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <div class="dropdown-header">
+                        Sports 
+                    </div>
+                        <button class="dropdown-item" type="button" id="input-soccer">Soccer</button>
+                        <button class="dropdown-item" type="button" id="input-football">Football</button>
+                        <button class="dropdown-item" type="button" id="input-basketball"> Basketball </button>
+                        <button class="dropdown-item" type="button" id="input-baseball"> Baseball </button>
+
+                    <div class="dropdown-divider"> 
+                        eSports
+                    </div>
+                        <button class="dropdown-item" type="button" id="input-overwatch"> Overwatch </button>
+                        <button class="dropdown-item" type="button" id="input-fortnite"> Fortnite </button>
+                        <button class="dropdown-item" type="button" id="input-starcraft2"> Starcraft II</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                                        
+
 
     <!-- asks if they are ready to play -->
     <div class="container"></div>
-
-
 
 
     <!-- jQuery CDN -->
