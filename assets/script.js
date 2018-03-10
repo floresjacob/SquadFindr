@@ -24,14 +24,33 @@ var config = {
   }
   firebase.initializeApp(config)
 
+var database = firebase.database()
+
 nameContainer.toggle()
 ending.toggle()
+
+var userProfile = new Object()
+
 
 $(".btn").on("click", function(e){
     e.preventDefault()
     
     console.log($(inputArray[pageIndex]).val())
     idArray[pageIndex].toggle()
+    switch(pageIndex){
+        case 0:
+            userProfile.name = $(inputArray[pageIndex]).val()
+            break
+        case 1:
+            userProfile.zip = $(inputArray[pageIndex]).val()
+            break
+        case 2:
+            userProfile.age = $(inputArray[pageIndex]).val()
+            break    
+        case 3:
+            userProfile.sport = $(inputArray[pageIndex]).val()
+            break
+    }
     if (pageIndex < idArray.length-1){
         pageIndex++
         console.log(idArray[pageIndex])
@@ -40,6 +59,7 @@ $(".btn").on("click", function(e){
     else {
         ending.toggle()
         ending.html("<h1>The End</h1>")
+        console.log(userProfile)
     }
 })
 
