@@ -86,6 +86,38 @@ $(".btn").on("click", function(e){
     }
 })
 
+$("#zipsbmt").on("click", function (){
+    event.preventDefault()
+    var zipReturn = $("#zip").val()
+    console.log(zipReturn)
+    getWeather (zipReturn)
+
+})
+
+
+// var userId = firebase.auth().currentUser.uid;
+// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+//   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+//   // ...
+// });
+
+// API calls /test
+
+function getWeather (weatherZip){
+    // var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b"
+    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip 
+    
+    $.ajax({
+        url: zipinput,
+        method: 'GET'
+    }).then(function(response) {
+            console.log(response);  
+    });
+}
+
+getWeather ();
+
+    
 database.ref().on("value", function(snapshot){
     console.log(snapshot.val())
     userArr = snapshot.val()
