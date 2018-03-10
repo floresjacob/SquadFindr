@@ -118,3 +118,14 @@ function getWeather (weatherZip){
 getWeather ();
 
     
+database.ref().on("value", function(snapshot){
+    console.log(snapshot.val())
+    userArr = snapshot.val()
+    newArray = []
+    Object.keys(userArr).map(function(key) {
+        newArray.push([userArr[key]])
+        // console.log(newArray)
+    })
+    console.log(newArray[1][0].Profile)
+    
+})
