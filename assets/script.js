@@ -86,40 +86,35 @@ $(".btn").on("click", function(e){
     }
 })
 
+$("#zipsbmt").on("click", function (){
+    event.preventDefault()
+    var zipReturn = $("#zip").val()
+    console.log(zipReturn)
+    getWeather (zipReturn)
+
+})
+
+
 // var userId = firebase.auth().currentUser.uid;
 // return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
 //   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
 //   // ...
 // });
 
-queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b"
+// API calls /test
 
-
-zipinput = 'api.openweathermap.org/data/2.5/weather?zip=' + zip 
-
-$.ajax({
-    url: queryURL,
-    method: 'GET'
-  }).then(function(response) {
-    console.log(response);
+function getWeather (weatherZip){
+    // var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b"
+    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip 
     
-  });
+    $.ajax({
+        url: zipinput,
+        method: 'GET'
+    }).then(function(response) {
+            console.log(response);  
+    });
+}
 
-// Examples of API calls:
-// api.openweathermap.org/data/2.5/weather?zip=94040,us
+getWeather ();
 
-// Parameters:
-// zip zip code
-
-// API respond:
-// {"coord":{"lon":-122.09,"lat":37.39},
-// "sys":{"type":3,"id":168940,"message":0.0297,"country":"US","sunrise":1427723751,"sunset":1427768967},
-// "weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01n"}],
-// "base":"stations",
-// "main":{"temp":285.68,"humidity":74,"pressure":1016.8,"temp_min":284.82,"temp_max":286.48},
-// "wind":{"speed":0.96,"deg":285.001},
-// "clouds":{"all":0},
-// "dt":1427700245,
-// "id":0,
-// "name":"Mountain View",
-// "cod":200}
+    
