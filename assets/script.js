@@ -31,6 +31,18 @@ ending.toggle()
 
 var userProfile = new Object()
 
+database.ref("/count").on("value", function(snapshot){
+    if (snapshot.child("Count").exists()){
+        userCount = parseInt(snapshot.val().Count)
+        console.log("user Count: " + userCount)
+    }
+    else {
+        userCount = 0
+        database.ref("/count").set({
+            Count: userCount
+        })
+    }
+})
 
 $(".btn").on("click", function(e){
     e.preventDefault()
@@ -60,6 +72,22 @@ $(".btn").on("click", function(e){
         ending.toggle()
         ending.html("<h1>The End</h1>")
         console.log(userProfile)
+        //user pushed to firebase
+        database.ref().push({
+            Profile: userProfile,
+            userNum: userCount
+        })  
+        userCount++
+        //user count set to user #
+        database.ref("/count").set({
+            Count: userCount
+        })
+        
     }
 })
 
+// var userId = firebase.auth().currentUser.uid;
+// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+//   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+//   // ...
+// });
