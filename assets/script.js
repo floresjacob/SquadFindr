@@ -86,8 +86,14 @@ $(".btn").on("click", function(e){
     }
 })
 
-// var userId = firebase.auth().currentUser.uid;
-// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-//   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-//   // ...
-// });
+database.ref().on("value", function(snapshot){
+    console.log(snapshot.val())
+    userArr = snapshot.val()
+    newArray = []
+    Object.keys(userArr).map(function(key) {
+        newArray.push([userArr[key]])
+        // console.log(newArray)
+    })
+    console.log(newArray[1][0].Profile)
+    
+})
