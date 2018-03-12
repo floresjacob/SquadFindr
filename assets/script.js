@@ -14,15 +14,26 @@ var sport = "#sport"
 var inputArray = [name, zip, age, sport]
 
 var pageIndex = 0
-var config = {
-    apiKey: "AIzaSyBgc6oG6MD5ePoP3wLxuUdEN5HOgfelFFk",
-    authDomain: "test1-1ab8a.firebaseapp.com",
-    databaseURL: "https://test1-1ab8a.firebaseio.com",
-    projectId: "test1-1ab8a",
-    storageBucket: "test1-1ab8a.appspot.com",
-    messagingSenderId: "143362573111"
-  }
-  firebase.initializeApp(config)
+
+  var config = {
+    apiKey: "AIzaSyA13XUmfMBdQRESumXGirRcCtDLLiMmNuk",
+    authDomain: "hunter-project-ad36a.firebaseapp.com",
+    databaseURL: "https://hunter-project-ad36a.firebaseio.com",
+    projectId: "hunter-project-ad36a",
+    storageBucket: "hunter-project-ad36a.appspot.com",
+    messagingSenderId: "985231274110"
+  };
+  firebase.initializeApp(config);
+
+// var config = {
+//     apiKey: "AIzaSyBgc6oG6MD5ePoP3wLxuUdEN5HOgfelFFk",
+//     authDomain: "test1-1ab8a.firebaseapp.com",
+//     databaseURL: "https://test1-1ab8a.firebaseio.com",
+//     projectId: "test1-1ab8a",
+//     storageBucket: "test1-1ab8a.appspot.com",
+//     messagingSenderId: "143362573111"
+//   }
+//   firebase.initializeApp(config)
 
 var database = firebase.database()
 
@@ -90,10 +101,12 @@ $("#zipsbmt").on("click", function (){
     event.preventDefault()
     var zipReturn = $("#zip").val()
     console.log(zipReturn)
-    getWeather (zipReturn)
+    getWeather(zipReturn)
 
 })
 
+
+// What's this? Needed for database & snapshot
 
 // var userId = firebase.auth().currentUser.uid;
 // return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
@@ -104,16 +117,21 @@ $("#zipsbmt").on("click", function (){
 // API calls /test
 
 function getWeather (weatherZip){
-    // var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b"
     var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip 
     
     $.ajax({
         url: zipinput,
         method: 'GET'
     }).then(function(response) {
-            console.log(response);  
+            // console.log(response); 
+            
+            $("#dynamicInfo").append(response.name)
+
+            // console.log(response.name)
     });
+    
 }
+
 
 getWeather ();
 
@@ -122,10 +140,11 @@ database.ref().on("value", function(snapshot){
     console.log(snapshot.val())
     userArr = snapshot.val()
     newArray = []
-    Object.keys(userArr).map(function(key) {
-        newArray.push([userArr[key]])
-        // console.log(newArray)
-    })
-    console.log(newArray[1][0].Profile)
+
+    // Object.keys(userArr).map(function(key) {
+    //     newArray.push([userArr[key]])
+    //     // console.log(newArray)
+    // })
+    // console.log(newArray[1][0].Profile)
     
 })
