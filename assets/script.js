@@ -100,8 +100,13 @@ $(".btn").on("click", function(e){
 $("#zipsbmt").on("click", function (){
     event.preventDefault()
     var zipReturn = $("#zip").val()
-    console.log(zipReturn)
+    // console.log(zipReturn)
     getWeather(zipReturn)
+    $("#dynamicInfo").css("display", "block")
+    // $("#humidityDisplay").css("display", "block")
+    // $("#cloudDisplay").css("display", "block")
+   
+    
 
 })
 
@@ -114,20 +119,28 @@ $("#zipsbmt").on("click", function (){
 //   // ...
 // });
 
-// API calls /test
 
+
+// API calls /test
 function getWeather (weatherZip){
-    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip 
+    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip + "&units=imperial"
     
     $.ajax({
         url: zipinput,
         method: 'GET'
     }).then(function(response) {
-            // console.log(response); 
+            console.log(response.name); 
+            console.log(response); 
             
-            $("#dynamicInfo").append(response.name)
-
-            // console.log(response.name)
+            $("#cityHeading").prepend(response.name)
+            $("#tempDisplay").prepend(response.main.temp)
+            $("#humidityDisplay").prepend(response.main.humidity)
+            $("#cloudDisplay").prepend(response.clouds.all)
+            // $("#lonDisplay").append(response.coord.lon)
+            // $("#latDisplay").append(response.coord.lat)
+            
+            
+           
     });
     
 }
