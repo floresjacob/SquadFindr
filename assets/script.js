@@ -15,25 +15,25 @@ var inputArray = [name, zip, age, sport]
 
 var pageIndex = 0
 
-  var config = {
-    apiKey: "AIzaSyA13XUmfMBdQRESumXGirRcCtDLLiMmNuk",
-    authDomain: "hunter-project-ad36a.firebaseapp.com",
-    databaseURL: "https://hunter-project-ad36a.firebaseio.com",
-    projectId: "hunter-project-ad36a",
-    storageBucket: "hunter-project-ad36a.appspot.com",
-    messagingSenderId: "985231274110"
-  };
-  firebase.initializeApp(config);
+//   var config = {
+//     apiKey: "AIzaSyA13XUmfMBdQRESumXGirRcCtDLLiMmNuk",
+//     authDomain: "hunter-project-ad36a.firebaseapp.com",
+//     databaseURL: "https://hunter-project-ad36a.firebaseio.com",
+//     projectId: "hunter-project-ad36a",
+//     storageBucket: "hunter-project-ad36a.appspot.com",
+//     messagingSenderId: "985231274110"
+//   };
+//   firebase.initializeApp(config);
 
-// var config = {
-//     apiKey: "AIzaSyBgc6oG6MD5ePoP3wLxuUdEN5HOgfelFFk",
-//     authDomain: "test1-1ab8a.firebaseapp.com",
-//     databaseURL: "https://test1-1ab8a.firebaseio.com",
-//     projectId: "test1-1ab8a",
-//     storageBucket: "test1-1ab8a.appspot.com",
-//     messagingSenderId: "143362573111"
-//   }
-//   firebase.initializeApp(config)
+var config = {
+    apiKey: "AIzaSyBgc6oG6MD5ePoP3wLxuUdEN5HOgfelFFk",
+    authDomain: "test1-1ab8a.firebaseapp.com",
+    databaseURL: "https://test1-1ab8a.firebaseio.com",
+    projectId: "test1-1ab8a",
+    storageBucket: "test1-1ab8a.appspot.com",
+    messagingSenderId: "143362573111"
+  }
+  firebase.initializeApp(config)
 
 var database = firebase.database()
 
