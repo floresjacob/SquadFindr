@@ -101,6 +101,7 @@ $("#zipsbmt").on("click", function (){
     event.preventDefault()
     var zipReturn = $("#zip").val()
     console.log(zipReturn)
+    getMap(zipReturn)
     getWeather(zipReturn)
 
 })
@@ -132,6 +133,69 @@ function getWeather (weatherZip){
     
 }
 
+function getMap(zipcode){
+    // $('#zip').val().trim()  gets a zipCode using for testing
+    // plug this zipcode to this dynamic url with geocoding with my api key
+    
+    var zipinput = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zipcode + '&key=AIzaSyDAjDJyK8EWda9UqGkO0SR8kPjr4XPvMng'
+    
+
+    // Calls an ajax command 
+    $.ajax({
+        url: zipinput, // plug in the zip code url 
+        method: 'GET' // retrieve data
+    }).then(function(response) { //  
+        console.log(response)
+        var lat = response.results[0].geometry.location.lat; // latitude data
+        var lng = response.results[0].geometry.location.lng; // longitude data
+
+        console.log(lat);
+        console.log(lng);
+
+        var mapProp = { // define all the map properties to show the map 
+            center: new google.maps.LatLng(lat,lng),
+            zoom: 15
+        }
+
+
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        // this is the code that will display the map to the page and load it
+        
+        var marker= new google.maps.Marker({
+            position: new google.maps.LatLng(lat,lng),
+            map: map,
+            title: 'Squad On'
+        });   
+
+           
+    });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+function getMap (locationZip){
+    
+    
+    
+   
+
+    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+ 
+}
+*/
+
+
+
 
 getWeather ();
 
@@ -148,3 +212,4 @@ database.ref().on("value", function(snapshot){
     // console.log(newArray[1][0].Profile)
     
 })
+
