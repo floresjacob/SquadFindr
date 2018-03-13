@@ -88,7 +88,7 @@ $(".btn").on("click", function(e){
         console.log(userProfile.zip)
         console.log(userProfile.sport)
         console.log(userProfile)
-        getWeather(userProfile.zip);
+        // getWeather(userProfile.zip);
         
         //user pushed to firebase
         // database.ref().push({
@@ -118,11 +118,6 @@ $("#zipsbmt").on("click", function (){
 
 })
 
-
-var name;
-var age;
-var zip;
-var sport;
 
 // What's this? Needed for database & snapshot
 
