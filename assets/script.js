@@ -75,19 +75,25 @@ $(".btn").on("click", function(e){
             break
     }
     if (pageIndex < idArray.length-1){
+        console.log(userProfile)
         pageIndex++
-        console.log(idArray[pageIndex])
+        // console.log(idArray[pageIndex])
         idArray[pageIndex].toggle()
     }
     else {
         ending.toggle()
         ending.html("<h1>The End</h1>")
+        console.log(userProfile.name)
+        console.log(userProfile.age)
+        console.log(userProfile.zip)
+        console.log(userProfile.sport)
         console.log(userProfile)
+        getWeather(userProfile.zip);
         //user pushed to firebase
-        database.ref().push({
-            Profile: userProfile,
-            userNum: userCount
-        })  
+        // database.ref().push({
+        //     Profile: userProfile,
+        //     userNum: userCount
+        // })  
         userCount++
         //user count set to user #
         database.ref("/count").set({
@@ -111,6 +117,11 @@ $("#zipsbmt").on("click", function (){
 })
 
 
+var name;
+var age;
+var zip;
+var sport;
+
 // What's this? Needed for database & snapshot
 
 // var userId = firebase.auth().currentUser.uid;
@@ -121,7 +132,7 @@ $("#zipsbmt").on("click", function (){
 
 
 
-// API calls /test
+// API calls / test
 function getWeather (weatherZip){
     var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip + "&units=imperial"
     
@@ -131,19 +142,21 @@ function getWeather (weatherZip){
     }).then(function(response) {
             console.log(response.name); 
             console.log(response); 
-            
+             
             $("#cityHeading").prepend(response.name)
             $("#tempDisplay").prepend(response.main.temp)
             $("#humidityDisplay").prepend(response.main.humidity)
             $("#cloudDisplay").prepend(response.clouds.all)
             // $("#lonDisplay").append(response.coord.lon)
             // $("#latDisplay").append(response.coord.lat)
-            
+          
             
            
     });
     
 }
+
+$()
 
 
 getWeather ();

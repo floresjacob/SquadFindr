@@ -3,6 +3,7 @@
 }
 
 #dynamicInfo {
+    display: none;
     font-family: Tahoma;
     background: #74ebd5;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
