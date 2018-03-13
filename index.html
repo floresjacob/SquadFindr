@@ -12,10 +12,24 @@
     <title>SquadFindr</title>
     
 </head>
-<div class="text-center" id="dynamicInfo" style="font-size: 20px"></div>
-    <div class="jumbotron text-center" id="return"></div>
 
-    <!-- landing page container just asks for name-->
+<!-- DYNAMIC WEATHER DISPLAY -->
+
+<div class="text-center" id="dynamicInfo" style="font-size: 15px">
+    <h1 id="cityHeading"></h1>
+    <h4>Local Temperature: </h4>
+        <p id="tempDisplay"> Degrees </p>
+    <h4>Humidity: </h4>
+        <p id="humidityDisplay">  % </p>
+    <h4>Cloud Forecast: </h4>
+        <p id="cloudDisplay"> % </p>    
+</div>
+
+<!--WHAT'S THIS FOR ON LINE BELOW? -->
+<div class="jumbotron text-center" id="return"></div>
+
+<!-- LANDING PAGE / NAME INPUT -->
+
     <div class="container page" id="namecon">
             <div class="jumbotron text-center">
                 <div class="container">
@@ -38,7 +52,7 @@
     
         </div>
 
-    <!-- container just asks for age range -->
+<!-- AGE INPUT OPTIONS -->
     <div class="container page" id="agecon">
             <div class="jumbotron text-center">
                 <div class="container">
@@ -65,7 +79,7 @@
     
         </div>
 
-    <!-- asks for zipcode  -->
+    <!-- ZIP INPUT / WEATHER DISPLAY  -->
     <div class="container page" id="zipcon">
         <div class="jumbotron text-center">
             <div class="container">
@@ -88,7 +102,12 @@
 
     </div>
 
+    
+<!-- TYPE OF SPORT -->
+
+
     <div id="googleMap" style="width:100%; height:400px"></div>
+
 
     <div class="container page" id="sportcon">
         <div class="jumbotron text-center">

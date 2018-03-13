@@ -75,19 +75,25 @@ $(".btn").on("click", function(e){
             break
     }
     if (pageIndex < idArray.length-1){
+        console.log(userProfile)
         pageIndex++
-        console.log(idArray[pageIndex])
+        // console.log(idArray[pageIndex])
         idArray[pageIndex].toggle()
     }
     else {
         ending.toggle()
         ending.html("<h1>The End</h1>")
+        console.log(userProfile.name)
+        console.log(userProfile.age)
+        console.log(userProfile.zip)
+        console.log(userProfile.sport)
         console.log(userProfile)
+        getWeather(userProfile.zip);
         //user pushed to firebase
-        database.ref().push({
-            Profile: userProfile,
-            userNum: userCount
-        })  
+        // database.ref().push({
+        //     Profile: userProfile,
+        //     userNum: userCount
+        // })  
         userCount++
         //user count set to user #
         database.ref("/count").set({
@@ -103,9 +109,19 @@ $("#zipsbmt").on("click", function (){
     console.log(zipReturn)
     getMap(zipReturn)
     getWeather(zipReturn)
+    $("#dynamicInfo").css("display", "block")
+    // $("#humidityDisplay").css("display", "block")
+    // $("#cloudDisplay").css("display", "block")
+   
+    
 
 })
 
+
+var name;
+var age;
+var zip;
+var sport;
 
 // What's this? Needed for database & snapshot
 
@@ -115,26 +131,30 @@ $("#zipsbmt").on("click", function (){
 //   // ...
 // });
 
-// API calls /test
 
+
+// API calls / test
 function getWeather (weatherZip){
-    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip 
+    var zipinput = 'https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=5abe8f6b0b78d90a100c6919a58c658b&zip=' + weatherZip + "&units=imperial"
     
     $.ajax({
         url: zipinput,
         method: 'GET'
     }).then(function(response) {
-            // console.log(response); 
-            
-            $("#dynamicInfo").append(response.name)
-
-            // console.log(response.name)
-    });
-    
+            console.log(response.name); 
+            console.log(response); 
+             
+            $("#cityHeading").prepend(response.name)
+            $("#tempDisplay").prepend(response.main.temp)
+            $("#humidityDisplay").prepend(response.main.humidity)
+            $("#cloudDisplay").prepend(response.clouds.all)
+            // $("#lonDisplay").append(response.coord.lon)
+            // $("#latDisplay").append(response.coord.lat)     
+    })
 }
 
+
 function getMap(zipcode){
-    // $('#zip').val().trim()  gets a zipCode using for testing
     // plug this zipcode to this dynamic url with geocoding with my api key
     
     var zipinput = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zipcode + '&key=AIzaSyDAjDJyK8EWda9UqGkO0SR8kPjr4XPvMng'
@@ -148,54 +168,22 @@ function getMap(zipcode){
         console.log(response)
         var lat = response.results[0].geometry.location.lat; // latitude data
         var lng = response.results[0].geometry.location.lng; // longitude data
-
+        //lat and long results
         console.log(lat);
         console.log(lng);
-
         var mapProp = { // define all the map properties to show the map 
             center: new google.maps.LatLng(lat,lng),
             zoom: 15
         }
-
-
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
         // this is the code that will display the map to the page and load it
-        
         var marker= new google.maps.Marker({
             position: new google.maps.LatLng(lat,lng),
             map: map,
             title: 'Squad On'
-        });   
-
-           
-    });
-
-
-
+        })     
+    })
 }
-
-
-
-
-
-
-
-
-
-/*
-function getMap (locationZip){
-    
-    
-    
-   
-
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
- 
-}
-*/
-
-
-
 
 getWeather ();
 
