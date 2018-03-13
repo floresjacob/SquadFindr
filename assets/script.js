@@ -89,6 +89,7 @@ $(".btn").on("click", function(e){
         console.log(userProfile.sport)
         console.log(userProfile)
         getWeather(userProfile.zip);
+        
         //user pushed to firebase
         // database.ref().push({
         //     Profile: userProfile,
