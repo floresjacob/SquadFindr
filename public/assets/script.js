@@ -113,9 +113,7 @@ $(".btn").on("click", function(e){
         })  
         userCount++
         //user count set to user #
-        database.ref("/count").set({
-            Count: userCount
-        })
+        userRef.push(userProfile)
         
     }
 })
@@ -191,21 +189,30 @@ function getMap(zipcode){
             title: 'Squad On',
             label: userProfile.name
         })     
-        // userProfile.marker = marker
+        
     })
 }
 
+//convert snap to array
+function snapshotToArray(snapshot) {
+    var returnArr = [];
+
+    snapshot.forEach(function(childSnapshot) {
+        var item = childSnapshot.val()
+        item.key = childSnapshot.key
+
+        returnArr.push(item)
+    })
+
+    return returnArr
+}
     
 userRef.orderByChild('name').on("value", function(snapshot){
-    console.log(snapshot.val())
-    userArr = snapshot.val()
-    newArray = []
+    console.log(snapshotToArray(snapshot))
+    userArr = snapshotToArray(snapshot)
+    for (i=0; i<userArr.length; i++){    
+        console.log(userArr[i].sport)
+    }
 
-    // Object.keys(userArr).map(function(key) {
-    //     newArray.push([userArr[key]])
-    //     // console.log(newArray)
-    // })
-    // console.log(newArray[1][0].Profile)
-    
 })
 
