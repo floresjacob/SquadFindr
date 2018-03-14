@@ -83,6 +83,7 @@ $(".btn").on("click", function(e){
             break
         case 1:
             userProfile.zip = $(inputArray[pageIndex]).val()
+            console.log("zip: " + userProfile.zip)
             getWeather(userProfile.zip)
             getMap(userProfile.zip)
             break
@@ -183,7 +184,7 @@ function getMap(zipcode){
             position: new google.maps.LatLng(lat,lng),
             map: map,
             title: 'Squad On',
-            label: userProfile.name
+            label: userArr[0].sport
         })     
         
     })
