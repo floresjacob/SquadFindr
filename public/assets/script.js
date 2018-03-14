@@ -30,7 +30,7 @@
     var inputArray = [name, zip, age, sport]
     
     var pageIndex = 0
-    
+    var resultButton = "<button id='teamCut'>Ready to Play?</button>"
     //   var config = {
         //     apiKey: "AIzaSyA13XUmfMBdQRESumXGirRcCtDLLiMmNuk",
         //     authDomain: "hunter-project-ad36a.firebaseapp.com",
@@ -100,17 +100,13 @@ $(".btn").on("click", function(e){
     else {
         ending.toggle()
         ending.html("<h1>The End</h1>")
+        ending.append(resultButton)
         console.log(userProfile.name)
         console.log(userProfile.age)
         console.log(userProfile.zip)
         console.log(userProfile.sport)
         console.log(userProfile)
         
-        // user pushed to firebase
-        database.ref().push({
-            Profile: userProfile,
-            userNum: userCount
-        })  
         userCount++
         //user count set to user #
         userRef.push(userProfile)
@@ -118,15 +114,28 @@ $(".btn").on("click", function(e){
     }
 })
 
-$("#zipsbmt").on("click", function (){
-    event.preventDefault()
-    var zipReturn = $("#zip").val()
-    console.log(zipReturn)
-    getMap(zipReturn)
-    getWeather(zipReturn)
-    $("#dynamicInfo").css("display", "block")
-})
+// $("#zipsbmt").on("click", function (){
+//     event.preventDefault()
+//     var zipReturn = $("#zip").val()
+//     console.log(zipReturn)
+//     getMap(zipReturn)
+//     getWeather(zipReturn)
+//     $("#dynamicInfo").css("display", "block")
+// })
 
+$("#return").on("click", "#teamCut", function(event){
+    event.preventDefault()
+    console.log("hit")
+    teamMap = getMap(userArr[0].zip)
+    teamWeather = getWeather(userArr[0].zip)
+    $("#return").toggle()
+    $("#resultCon").toggle()
+    $("#dynamicInfo").css("display", "block")
+    $("#team").append("<h3>THE TEAM: </h3><br>")
+    for (i=0; i<teamArray.length; i++ ){    
+        selectTeam(teamArray[i].name)
+    }
+})
 
 // API calls / test
 function getWeather (weatherZip){
@@ -202,7 +211,7 @@ userRef.orderByChild('name').on("value", function(snapshot){
     console.log(snapshotToArray(snapshot))
     //convert object of users into an array
     userArr = snapshotToArray(snapshot)
-    var teamArray = []
+    teamArray = []
     for (i=0; i<userArr.length; i++){    
         //call on userArr objects
         if (userArr[i].sport === userArr[0].sport 
@@ -210,11 +219,11 @@ userRef.orderByChild('name').on("value", function(snapshot){
             teamArray.push(userArr[i])
         }
     }
+    console.log(teamArray)
     //now have team array. use function to pass to map and weather
-    teamMap = getMap(userArr[0].zip)
-    teamWeather = getWeather(userArr[0].zip)
+    // selectTeam(teamArray)
 })
 
 function selectTeam(teamArr){
-    database.ref('/team').push(teamArr)
+    $("#team").append(teamArr + "<br>")
 }
