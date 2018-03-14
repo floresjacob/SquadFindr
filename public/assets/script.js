@@ -83,6 +83,8 @@ $(".btn").on("click", function(e){
             break
         case 1:
             userProfile.zip = $(inputArray[pageIndex]).val()
+            getWeather(userProfile.zip)
+            getMap(userProfile.zip)
             break
         case 2:
             userProfile.age = $(inputArray[pageIndex]).val()
@@ -101,15 +103,11 @@ $(".btn").on("click", function(e){
         ending.toggle()
         ending.html("<h1>The End</h1>")
         ending.append(resultButton)
-        console.log(userProfile.name)
-        console.log(userProfile.age)
-        console.log(userProfile.zip)
-        console.log(userProfile.sport)
         console.log(userProfile)
-        
+        userRef.push(userProfile)
         userCount++
         //user count set to user #
-        userRef.push(userProfile)
+        
         
     }
 })
@@ -126,8 +124,6 @@ $(".btn").on("click", function(e){
 $("#return").on("click", "#teamCut", function(event){
     event.preventDefault()
     console.log("hit")
-    teamMap = getMap(userArr[0].zip)
-    teamWeather = getWeather(userArr[0].zip)
     $("#return").toggle()
     $("#resultCon").toggle()
     $("#dynamicInfo").css("display", "block")
@@ -147,13 +143,13 @@ function getWeather (weatherZip){
     }).then(function(response) {
             console.log(response.name) 
             console.log(response)              
-            $("#cityHeading").prepend(response.name)
+            $("#cityHeading").text(response.name)
             userProfile.city = response.name
-            $("#tempDisplay").prepend(response.main.temp)
+            $("#tempDisplay").text(response.main.temp+String.fromCharCode(176))
             userProfile.temp = response.main.temp
-            $("#humidityDisplay").prepend(response.main.humidity)
+            $("#humidityDisplay").text(response.main.humidity+"%")
             userProfile.humidity = response.main.humidity
-            $("#cloudDisplay").prepend(response.clouds.all) 
+            $("#cloudDisplay").text(response.clouds.all+"%") 
             userProfile.clouds = response.clouds.all
     })
 }
@@ -211,6 +207,7 @@ userRef.orderByChild('name').on("value", function(snapshot){
     console.log(snapshotToArray(snapshot))
     //convert object of users into an array
     userArr = snapshotToArray(snapshot)
+    //now have team array. use function to pass to map and weather
     teamArray = []
     for (i=0; i<userArr.length; i++){    
         //call on userArr objects
@@ -219,11 +216,11 @@ userRef.orderByChild('name').on("value", function(snapshot){
             teamArray.push(userArr[i])
         }
     }
-    console.log(teamArray)
-    //now have team array. use function to pass to map and weather
     // selectTeam(teamArray)
 })
 
 function selectTeam(teamArr){
     $("#team").append(teamArr + "<br>")
+    teamMap = getMap(userArr[0].zip)
+    teamWeather = getWeather(userArr[0].zip)
 }
