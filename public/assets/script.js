@@ -127,15 +127,6 @@ $("#zipsbmt").on("click", function (){
     $("#dynamicInfo").css("display", "block")
 })
 
-// What's this? Needed for database & snapshot
-
-// var userId = firebase.auth().currentUser.uid;
-// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-//   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-//   // ...
-// })
-
-
 
 // API calls / test
 function getWeather (weatherZip){
@@ -209,10 +200,21 @@ function snapshotToArray(snapshot) {
     
 userRef.orderByChild('name').on("value", function(snapshot){
     console.log(snapshotToArray(snapshot))
+    //convert object of users into an array
     userArr = snapshotToArray(snapshot)
+    var teamArray = []
     for (i=0; i<userArr.length; i++){    
-        console.log(userArr[i].sport)
+        //call on userArr objects
+        if (userArr[i].sport === userArr[0].sport 
+            && userArr[i].city === userArr[0].city){
+            teamArray.push(userArr[i])
+        }
     }
-
+    //now have team array. use function to pass to map and weather
+    teamMap = getMap(userArr[0].zip)
+    teamWeather = getWeather(userArr[0].zip)
 })
 
+function selectTeam(teamArr){
+    database.ref('/team').push(teamArr)
+}
