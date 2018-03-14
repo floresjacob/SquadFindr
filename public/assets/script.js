@@ -30,7 +30,7 @@
     var inputArray = [name, zip, age, sport]
     
     var pageIndex = 0
-    var resultButton = "<button id='teamCut'>Ready to Play?</button>"
+    var resultButton = "<button class='btn btn-primary' id='teamCut'>Ready to Play?</button>"
     //   var config = {
         //     apiKey: "AIzaSyA13XUmfMBdQRESumXGirRcCtDLLiMmNuk",
         //     authDomain: "hunter-project-ad36a.firebaseapp.com",
@@ -101,7 +101,7 @@ $(".btn").on("click", function(e){
     }
     else {
         ending.toggle()
-        ending.html("<h1>The End</h1>")
+        ending.html("<img src='./assets/images/logo.png' height='200' width='200'>")
         ending.append(resultButton)
         console.log(userProfile)
         userRef.push(userProfile)
