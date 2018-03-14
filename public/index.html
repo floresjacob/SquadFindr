@@ -13,17 +13,7 @@
     
 </head>
 
-<!-- DYNAMIC WEATHER DISPLAY -->
 
-<div class="text-center" id="dynamicInfo" style="font-size: 15px">
-    <h1 id="cityHeading"></h1>
-    <h4>Local Temperature: </h4>
-        <p id="tempDisplay"> Degrees </p>
-    <h4>Humidity: </h4>
-        <p id="humidityDisplay">  % </p>
-    <h4>Cloud Forecast: </h4>
-        <p id="cloudDisplay"> % </p>    
-</div>
 
 <!--WHAT'S THIS FOR ON LINE BELOW? -->
 <div class="jumbotron text-center" id="return"></div>
@@ -106,7 +96,7 @@
 <!-- TYPE OF SPORT -->
 
 
-    <div id="googleMap" style="width:100%; height:400px"></div>
+    
 
 
     <div class="container page" id="sportcon">
@@ -166,6 +156,34 @@
             
         </div>
         
+        <div class="container page" id="resultCon">
+            <div class="jumbotron text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <span id="team"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="googleMap" style="width:100%; height:400px"></div>
+                            <!-- DYNAMIC WEATHER DISPLAY -->
+                            <div class="text-center" id="dynamicInfo" style="font-size: 15px">
+                                <h1 id="cityHeading"></h1>
+                                <h4>Local Temperature: </h4>
+                                    <p id="tempDisplay"> Degrees </p>
+                                <h4>Humidity: </h4>
+                                    <p id="humidityDisplay">  % </p>
+                                <h4>Cloud Forecast: </h4>
+                                    <p id="cloudDisplay"> % </p>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         
         <!-- jQuery CDN -->
