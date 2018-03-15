@@ -176,7 +176,225 @@ function getMap(zipcode){
         console.log(lng)
         var mapProp = { // define all the map properties to show the map 
             center: new google.maps.LatLng(lat,lng),
-            zoom: 15
+            zoom: 15,
+            styles: [
+                {
+                "featureType": "all",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                "color": "#63b5e5"
+                }
+                ]
+                },
+                {
+                "featureType": "all",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                "color": "#8a2be2"
+                }
+                ]
+                },
+                {
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                {
+                "gamma": 0.01
+                },
+                {
+                "lightness": 20
+                }
+                ]
+                },
+                {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                {
+                "saturation": -31
+                },
+                {
+                "lightness": -33
+                },
+                {
+                "weight": 2
+                },
+                {
+                "gamma": 0.8
+                }
+                ]
+                },
+                {
+                "featureType": "all",
+                "elementType": "labels.icon",
+                "stylers": [
+                {
+                "visibility": "off"
+                }
+                ]
+                },
+                {
+                "featureType": "administrative",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                {
+                "color": "#ffffff"
+                }
+                ]
+                },
+                {
+                "featureType": "administrative",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                {
+                "color": "#41396e"
+                }
+                ]
+                },
+                {
+                "featureType": "landscape",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                "lightness": 30
+                },
+                {
+                "saturation": 30
+                },
+                {
+                "color": "#41396e"
+                }
+                ]
+                },
+                {
+                "featureType": "landscape.man_made",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                "color": "#41396e"
+                }
+                ]
+                },
+                {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                "saturation": 20
+                },
+                {
+                "color": "#4e4775"
+                }
+                ]
+                },
+                {
+                "featureType": "poi",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                {
+                "color": "#ffffff"
+                }
+                ]
+                },
+                {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                "lightness": 20
+                },
+                {
+                "saturation": -20
+                },
+                {
+                "color": "#00ff00"
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "geometry",
+                "stylers": [
+                {
+                "lightness": 10
+                },
+                {
+                "saturation": -30
+                },
+                {
+                "color": "#c890ba"
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                "color": "#a470a1"
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "geometry.stroke",
+                "stylers": [
+                {
+                "saturation": 25
+                },
+                {
+                "lightness": 25
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "labels.text",
+                "stylers": [
+                {
+                "visibility": "simplified"
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "labels.text.fill",
+                "stylers": [
+                {
+                "color": "#ffffff"
+                }
+                ]
+                },
+                {
+                "featureType": "road",
+                "elementType": "labels.text.stroke",
+                "stylers": [
+                {
+                "color": "#41396e"
+                }
+                ]
+                },
+                {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                {
+                "lightness": -20
+                }
+                ]
+                },
+                {
+                "featureType": "water",
+                "elementType": "geometry.fill",
+                "stylers": [
+                {
+                "color": "#38548d"
+                }
+                ]
+                }
+                ]
         }
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp)
         // this is the code that will display the map to the page and load it
